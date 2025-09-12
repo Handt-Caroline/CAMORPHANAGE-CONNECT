@@ -1,0 +1,150 @@
+@import "tailwindcss";
+@import 'leaflet/dist/leaflet.css';
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+     :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Ensure input text is always visible */
+
+input,
+textarea,
+select {
+    color: #374151 !important;
+    /* Always dark gray text */
+    background-color: white !important;
+    /* Always white background */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9CA3AF !important;
+    /* Light gray placeholder */
+}
+
+
+/* Override dark mode for form elements */
+
+@media (prefers-color-scheme: dark) {
+    input,
+    textarea,
+    select {
+        color: #374151 !important;
+        background-color: white !important;
+    }
+    input::placeholder,
+    textarea::placeholder {
+        color: #9CA3AF !important;
+    }
+}
+
+
+/* Custom animations for the homepage */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradient-shift {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+
+/* Animation utility classes */
+
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slideInUp {
+    animation: slideInUp 0.8s ease-out;
+}
+
+.animate-gradient-shift {
+    animation: gradient-shift 3s ease-in-out infinite;
+    background-size: 200% 200%;
+}
+
+
+/* Delay classes */
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+.delay-500 {
+    animation-delay: 0.5s;
+}
+
+.delay-700 {
+    animation-delay: 0.7s;
+}
+
+.delay-1000 {
+    animation-delay: 1s;
+}
+
+
+/* Background size utility */
+
+.bg-size-200 {
+    background-size: 200% 200%;
+}
